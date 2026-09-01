@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A polished Hello World page." />
-    <title>Hello, World!</title>
+    <meta name="description" content="A polished welcome page." />
+    <title>Home | Hello, World!</title>
     <style>
       :root {
         color-scheme: dark;
@@ -17,7 +17,7 @@
         display: grid;
         min-height: 100vh;
         margin: 0;
-        overflow: hidden;
+        overflow-x: hidden;
         place-items: center;
         color: #f8f7ff;
         background: #0b1020;
@@ -47,6 +47,30 @@
         box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(18px);
         animation: enter 700ms cubic-bezier(.2,.9,.2,1) both;
+      }
+
+      nav {
+        position: absolute;
+        top: 1.4rem;
+        right: 1.7rem;
+        display: flex;
+        gap: 0.35rem;
+      }
+
+      nav a {
+        padding: 0.45rem 0.75rem;
+        color: #d9ddff;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 999px;
+        transition: background 180ms ease, color 180ms ease;
+      }
+
+      nav a:hover, nav a:focus-visible, nav a[aria-current="page"] {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.13);
+        outline: none;
       }
 
       .eyebrow {
@@ -123,12 +147,22 @@
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
       }
+
+      @media (max-width: 540px) {
+        main { padding-top: 5.25rem; }
+        nav { top: 1rem; right: 50%; transform: translateX(50%); }
+      }
     </style>
   </head>
   <body>
     <div class="orb orb--pink" aria-hidden="true"></div>
     <div class="orb orb--blue" aria-hidden="true"></div>
     <main>
+      <nav aria-label="Primary navigation">
+        <a href="hello-world.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
       <div class="eyebrow">Ready to begin</div>
       <h1>Hello, <span>World!</span></h1>
       <p>A small first step, beautifully made. Your next great idea can start right here.</p>
